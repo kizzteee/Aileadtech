@@ -1,0 +1,121 @@
+{% extends 'Ailead_app/base.html' %}
+{%  load static %}
+{% block content %}
+
+		<link href="css/style3.css" rel="stylesheet">
+<div class="wrapper">
+			<!-- banner -->
+			<div class="banner">
+				<div class="container">
+					<!-- banner content -->
+					<div class="banner-content">
+						<!-- logo image -->
+						<a class="navbar-brand mr-auto" href="#"><img src="https://aileadtech.com/wp-content/uploads/2020/04/AILEAD-TECH-logo-2.png" alt="AiLead Technologies" id="logo" data-height-percentage="54" data-actual-width="1080" data-actual-height="720" width="100" height="50"></a>
+						<!-- short paragraph -->
+						<p>Check out our upcoming event <br>down below</p>
+						<!-- button link -->
+						<a href="signup.html" class="btn btn-info btn-lg btn-warning">Sign Up</a>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+  <div class="row">
+    <h1 class="text-center flagship" style="width:100%;font-size: 3em; padding-top:100px; margin-bottom:50px;text-shadow:2px 2px 5px;">Our Flagship Programme</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <img src="images/Advert.jpg" class="shadow-lg" style="border:2px solid #c7ad48; border-radius:20px; max-height:500px;max-width:100%;">
+    </div>
+    <div class="col-9">
+        <div class="media" style=" margin-bottom:100px;">
+          <div class="media-body" style="text-align:left;  padding:40px 0;">
+            <h3 style="color:#852880; font-size:2em;font-family:times;"><b>Applied Machine Learning</b></h3>
+           <p>Comprehensive Applied Machine Learning With Python. At this training, you will be introduced to the fascinating concept of Artificial Intelligence. The FREE training will take place during the four weeks of June, 2020 while the registration fee is #1,000. </p>
+           <ul>
+             <li><b>Venue:</b> ZOOM</li>
+             <li><b>Time:</b> 10am to 12:00pm</li>
+           </ul>
+           <div style="margin-top:40px; margin-left:20px;background-clip: border-box;"><a class="shadow-l" id="flag-button" style="color:white;background-color:#c7ad48;border:2px solid #c7ad48; padding:10px; margin-top: 40px;border-radius:20px;box-shadow:2px 2px 7px;" href="Signup.html"><b>Enrol Now</b></a> </div>
+
+          </div>
+       </div>
+     </div>
+    </div>
+
+  </div>
+
+
+			<!-- feature block -->
+			<div class="feature">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 col-sm-4">
+							<!-- feature item -->
+							<div class="feature-item">
+								<!-- icon -->
+								<i class="fa fa-crosshairs"></i>
+								<!-- heading -->
+								<h4>Live Online Classes with zoom</h4>
+								<!-- paragraph -->
+								<p>Zoom is probably the most well-received collaboration tool that we've seen at Fox in 20 years. There is no other tool that has brought people closer together than Zoom.</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<!-- feature item -->
+							<div class="feature-item">
+								<!-- icon -->
+								<i class="fa fa-sitemap"></i>
+								<!-- heading -->
+								<h4>Group/Team-Work</h4>
+								<!-- paragraph -->
+								<p>Talent wins games, but teamwork and intelligence win championships</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<!-- feature item -->
+							<div class="feature-item">
+								<!-- icon -->
+								<i class="fa fa-terminal"></i>
+								<!-- heading -->
+								<h4>Application Testiness</h4>
+								<!-- paragraph -->
+								<p>Application Testing is defined as a software testing type, conducted through scripts with the motive of finding errors in software. It deals with tests for the entire application</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- subscribe block -->
+			<div class="subscribe">
+				<div class="container">
+					<div class="sub-content">
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<!-- subscribe update message -->
+								<div class="sub-message">
+									<!-- heading -->
+									<h3>Get Subscribe For Any Updates!</h3>
+									<!-- paragraph -->
+									<p>We believe that there’s more to learning than just a video recording. Our learning system is therefore designed to foster student engagement, interaction and active participation, not just with the instructors but among the learners as well.
+It’s why we have adopted a model that incorporates the following</p>
+									<!-- paragraph -->
+									<!-- update form  -->
+									<form role="form">
+										<div class="input-group">
+											<input type="text" class="form-control input-lg" placeholder="Email Address">
+											<span class="input-group-btn">
+												<button class="btn btn-info btn-lg" type="button">Subscribe</button>
+											</span>
+										</div><!-- /input-group -->
+									</form>
+								</div>
+							</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+      {% include 'Ailead_app/footer.html' %}
+   {% endblock content %}

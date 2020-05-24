@@ -1,0 +1,36 @@
+{% extends "Ailead_app/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static "css/materialize.min.css" %}"/>
+<link rel="stylesheet" href="{% static "css/style2.css" %}">
+
+<div class="hed" style="">
+  <div class="container" style="background-color:purple;">
+
+    <div class="innerpage_banner" style="padding-top:70px;">
+       <div class="container">
+        <div class="row">
+         <div class="col-md-12">
+          <h2>Contact us</h2>
+       </div>
+      </div>
+     </div>
+    </div>
+      <div  class="row">
+          <div  class="col l12">
+              <h1>Contact form</h1>
+              <form method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+              <button class="btn waves-effect waves-light btn-warning" type="submit">Send Email</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% include 'Ailead_app/footer.html' %}
+{% endblock %}

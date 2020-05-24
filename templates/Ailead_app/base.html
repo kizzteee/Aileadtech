@@ -1,0 +1,87 @@
+<!doctype html>
+<!--
+	Fox by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+{% load static %}
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Aileadtech.com</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="{% static "css/animate.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/style2.css" %}">
+
+      <script type="text/javascript">
+            /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+            (function(d, m){
+              var kommunicateSettings = {"appId":"1856fc66a4df5888519a22c4fafd10cd0","popupWidget":true,"automaticChatOpenOnNavigation":true};
+              var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+              s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+              var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+              window.kommunicate = m; m._globals = kommunicateSettings;
+            })(document, window.kommunicate || {});
+        </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand mr-auto" href="#"><img src="https://aileadtech.com/wp-content/uploads/2020/04/AILEAD-TECH-logo-2.png" alt="AiLead Technologies" id="logo" data-height-percentage="54" data-actual-width="1080" data-actual-height="720" width="100" height="50"></a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span> </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}">About</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'courses' %}">Courses</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'contact' %}">Contact</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'register' %}">Register</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Login</a> </li>
+
+        </ul>
+        <ul class="navbar-nav ml-5">
+          <li class="nav-item"> <a class="nav-link btn btn-warning" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> </li>
+        </ul>
+      </div>
+    </div>
+
+    <span style="color:white; margin-right:30px; font-size:18px;" >Hello,{{ request.user }} </span>
+    <span class="navbar-nav"><a href="{% url 'logout' %}" class="nav-link">Logout</a></span>
+    
+  </nav>
+     {% block content %}
+
+     {% endblock content %}
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Bootstrap JS, ... -->
+
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/parallax.js" %}"></script>
+<script src="{% static "js/wow.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+
+<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "js/smoothscroll.js" %}"></script>
+
+
+
+</body>
+</html>
