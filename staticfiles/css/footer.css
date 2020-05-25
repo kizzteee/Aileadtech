@@ -1,0 +1,57 @@
+
+.footer-box {
+     background: #072745;
+     padding: 50px 0;
+     text-align: center;
+}
+ .footer-box .footer-company-name {
+     text-align: center;
+     margin: 0px;
+     color: #333;
+     font-size: 13px;
+     font-weight: 400;
+     padding-top: 2px;
+}
+ .footer-box .footer-company-name a {
+     color: #333;
+     text-decoration: underline !important;
+}
+ .footer-box .footer-company-name a:hover {
+     color: #e91327;
+}
+ul.social_icon li a {
+     width: 35px;
+     height: 35px;
+     background: #fff;
+     float: left;
+     border-radius: 100%;
+}
+ ul.social_icon li i {
+     color: #000 !important;
+     line-height:35px;
+}
+ ul.social_icon li {
+     float: left;
+     margin: 0 5px;
+}
+ .footer_bottom {
+     background: #05223d;
+     padding: 15px 0;
+}
+ .footer_bottom p.crp {
+     float: left;
+     margin: 0;
+     color: #8d8d8c;
+     font-size: 15px;
+}
+ ul.bottom_menu li a {
+     color: #8d8d8c;
+}
+ ul.bottom_menu li {
+     float: left;
+     font-size: 14px;
+     font-weight: 300;
+     margin-left: 20px;
+}
+ .bottom_menu {
+     float: right;
