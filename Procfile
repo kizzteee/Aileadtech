@@ -1,1 +1,1 @@
-web: gunicorn AiLead_app.wsgi --log-file -
+web: gunicorn Ailead_pro.wsgi --log-file -
