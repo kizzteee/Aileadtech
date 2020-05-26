@@ -5,12 +5,12 @@
 
 
 <link rel="stylesheet" href="{% static "css/materialize.min.css" %}"/>
-<link rel="stylesheet" href="{% static "css/style2.css" %}">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
 
 <div class="hed" style="">
   <div class="container" style="background-color:purple;">
 
-    <div class="innerpage_banner" style="padding-top:70px;">
+    <div class="innerpage_banner img-fluid" style="background-image: url({% static 'images/D13.png' %}); padding-top:70px;">
        <div class="container">
         <div class="row">
          <div class="col-md-12">
@@ -27,6 +27,10 @@
                   {{ form.as_p }}
               <button class="btn waves-effect waves-light btn-warning" type="submit">Send Email</button>
               </form>
+
+              {% for message in messages %}
+      				 <p id="messages">{{message}}</p>
+      				{% endfor %}
           </div>
       </div>
   </div>

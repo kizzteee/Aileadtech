@@ -9,7 +9,7 @@ body {
   font-family: 'Lato', sans-serif;
   overflow: hidden;
   overflow-y: scroll;
-  background-color: white;
+  background: url("../images/D12.jpg");
 }
 body .bg-img {
   background-repeat: no-repeat;

@@ -22,9 +22,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'f(2co(levg(cw1xfkw3b@$=*rlc6^0t7_0x7(mx00lh-rjpnmp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['aileadtech.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['aileadtech.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,9 +122,8 @@ STATICFILES_DIRS = [
      STATIC_DIR,
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
+STATIC_ROOT = '/home/aileadtech/Aileadtech/static'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
@@ -135,8 +133,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'kizzyiyke4@gmail.com'
 EMAIL_HOST_PASSWORD = 'excellen'
-
-
-
-ADMINS = [('Ikeoluwa', EMAIL_HOST)]
-MANAGERS = ADMINS

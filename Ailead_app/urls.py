@@ -2,6 +2,7 @@ from django.urls import path
 from Ailead_app import views
 from django.contrib.auth import views as auth_views
 
+app_name = 'Ailead_app'
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -9,9 +10,11 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
     path('about/', views.about, name='about'),
     path('login/', views.user_login, name='login'),
-    path('logout/', views.Logout_user, name='logout'),
     path('register/', views.register, name='register'),
     path('whatsnew/', views.whatsnew, name='whatsnew'),
+    path('logout/', views.user_logout, name='logout'),
+    path('ecommerce/', views.ecommerce, name='ecommerce'),
+
 
     path('reset_password/',
      auth_views.PasswordResetView.as_view(template_name="Ailead_app/password_reset.html"),

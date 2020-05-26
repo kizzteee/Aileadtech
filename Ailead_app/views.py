@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from . import forms
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm, ContactForm
@@ -8,24 +8,34 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
+from django.urls import reverse
 
 
 
-@login_required(login_url='login')
+
 def home(request):
-    return render(request, 'Ailead_app/index.html')
+    context ={}
+    return render(request, 'Ailead_app/index.html', context)
 
-@login_required(login_url='login')
+
 def courses(request):
     return render(request, 'Ailead_app/courses.html')
 
-@login_required(login_url='login')
+
 def about(request):
     return render(request, 'Ailead_app/about.html')
 
-@login_required(login_url='login')
+@login_required
+def user_logout(request):
+    # Log out the user.
+    logout(request)
+    # Return to homepage.
+    return render(request, 'Ailead_app/index.html')
+
+
 def contact(request):
     Contact_Form = ContactForm
+
     if request.method == 'POST':
         form = Contact_Form(data=request.POST)
 
@@ -33,6 +43,8 @@ def contact(request):
             contact_name = request.POST.get('contact_name')
             contact_email = request.POST.get('contact_email')
             contact_content = request.POST.get('content')
+
+            messages.info(request, 'message sent')
 
             template = get_template('Ailead_app/contact_form.txt')
             context = {
@@ -51,9 +63,9 @@ def contact(request):
                 headers = { 'Reply To': contact_email }
             )
 
-            email.send()
+            email.send(fail_silently=True)
 
-            return render(request, 'Ailead_app/success.html')
+
     return render(request, 'Ailead_app/contact.html', {'form':Contact_Form })
 
 def success(request):
@@ -76,9 +88,6 @@ def user_login(request):
     context = {}
     return render(request, 'Ailead_app/login.html', context)
 
-def Logout_user(request):
-    logout(request)
-    return redirect('login')
 
 def register(request):
 
@@ -98,3 +107,6 @@ def register(request):
 def whatsnew(request):
     context = {}
     return render(request, 'Ailead_app/whatsnew.html', context)
+def ecommerce(request):
+    context = {}
+    return render(request, 'Ailead_app/ecommerce.html', context)
