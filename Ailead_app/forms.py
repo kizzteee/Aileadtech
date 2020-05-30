@@ -14,6 +14,7 @@ class CreateUserForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 class ContactForm(forms.Form):
-    contact_name = forms.CharField(required=True)
-    contact_email = forms.EmailField(required=True)
-    content = forms.CharField(required=True, widget=forms.Textarea)
+    name = forms.CharField(max_length=100, label='Your Name', widget=forms.TextInput(attrs={ 'class': 'form-control' }))
+    email = forms.EmailField(label='Your e-mail address', widget=forms.TextInput(attrs={ 'class': 'form-control' }))
+    subject = forms.CharField(max_length=100, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
+    message = forms.CharField(required=False, widget=forms.Textarea(attrs={ 'class': 'form-control' }))

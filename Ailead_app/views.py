@@ -6,7 +6,7 @@ from .forms import CreateUserForm, ContactForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail, get_connection, BadHeaderError
 from django.template.loader import get_template
 from django.urls import reverse
 
@@ -34,39 +34,26 @@ def user_logout(request):
 
 
 def contact(request):
-    Contact_Form = ContactForm
-
+    submitted = False
     if request.method == 'POST':
-        form = Contact_Form(data=request.POST)
-
+        form = ContactForm(request.POST)
         if form.is_valid():
-            contact_name = request.POST.get('contact_name')
-            contact_email = request.POST.get('contact_email')
-            contact_content = request.POST.get('content')
+            cd = form.cleaned_data
+             # assert False
 
-            messages.info(request, 'message sent')
+            send_mail(
+                cd['subject'],
+                cd['message'],
+                cd['email'],
+                ['kizzyiyke4@gmail.com'],
+             )
+            return HttpResponseRedirect('/contact?submitted=True')
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted = True
 
-            template = get_template('Ailead_app/contact_form.txt')
-            context = {
-                'contact_name' : contact_name,
-                'contact_email' : contact_email,
-                'contact_content' : contact_content,
-            }
-
-            content = template.render(context)
-
-            email = EmailMessage(
-                "New contact form email",
-                content,
-                "Creative web" + '',
-                ['example@gmail.com'],
-                headers = { 'Reply To': contact_email }
-            )
-
-            email.send(fail_silently=True)
-
-
-    return render(request, 'Ailead_app/contact.html', {'form':Contact_Form })
+    return render(request, 'Ailead_app/contact.html', {'form': form, 'submitted': submitted})
 
 def success(request):
     context = {}

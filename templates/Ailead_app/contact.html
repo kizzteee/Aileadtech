@@ -1,40 +1,159 @@
-{% extends "Ailead_app/base.html" %}
+{% extends 'Ailead_app/base.html' %}
 {% load static %}
-
 {% block content %}
 
 
-<link rel="stylesheet" href="{% static "css/materialize.min.css" %}"/>
-<link rel="stylesheet" href="{% static "css/style.css" %}">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+ <meta charset="utf-8">
 
-<div class="hed" style="">
-  <div class="container" style="background-color:purple;">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css">
 
-    <div class="innerpage_banner img-fluid" style="background-image: url({% static 'images/D13.png' %}); padding-top:70px;">
-       <div class="container">
-        <div class="row">
-         <div class="col-md-12">
-          <h2>Contact us</h2>
-       </div>
-      </div>
-     </div>
-    </div>
-      <div  class="row">
-          <div  class="col l12">
-              <h1>Contact form</h1>
-              <form method="post">
-                  {% csrf_token %}
-                  {{ form.as_p }}
-              <button class="btn waves-effect waves-light btn-warning" type="submit">Send Email</button>
-              </form>
+     <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
 
-              {% for message in messages %}
-      				 <p id="messages">{{message}}</p>
-      				{% endfor %}
-          </div>
-      </div>
-  </div>
+
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>>
+
+
+
+<title></title>
+
+<style media="screen">
+  /*Contact sectiom*/
+  .content-header{
+    font-family: 'Oleo Script', cursive;
+    color:#fcc500;
+    font-size: 45px;
+  }
+  .section-content{
+    text-align: center;
+    padding-top: 80px;
+  }
+  #contact{
+    font-family: 'Teko', sans-serif;
+    padding-top: 60px;
+    width: 100%;
+    background: #3a6186; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color : #fff;
+  }
+  .contact-section{
+    padding-top: 40px;
+  }
+  .contact-section .col-md-6{
+    width: 50%;
+  }
+  .form-line{
+    border-right: 1px solid #B29999;
+  }
+  .form-group{
+    margin-top: 10px;
+  }
+  label{
+    font-size: 1.3em;
+    line-height: 1em;
+    font-weight: normal;
+  }
+  .form-control{
+    font-size: 1.3em;
+    color: #080808;
+  }
+  textarea.form-control {
+      height: 200px;
+
+     /* margin-top: px;*/
+  }
+
+  .submit{
+    font-size: 1.1em;
+    float: right;
+    width: 150px;
+    background-color: gold;
+    color: #fff;
+  }
+</style>
+
+  </head>
+
+  <body style="background:purple;">
+
+    <div class="section-content">
+
+<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
+
+<h3>We are always available to attend to you</h3>
+
 </div>
 
-{% include 'Ailead_app/footer.html' %}
-{% endblock %}
+{% if submitted %}
+
+<div class="alert alert-success" role="alert">
+
+ Your message was submitted successfully. Thank you.
+
+</div>
+{% else %}
+
+{% if form.errors %}
+ {% for error in form.errors %}
+
+   <div class="alert alert-danger" role="alert">
+
+    This fields is required : {{ error }}
+  </div>
+ {% endfor %}
+{% endif %}
+
+
+<form action="" method="post" novalidate>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 form-line">
+     <div class="form-group">
+
+      <label for="exampleInputUsername">Your name</label>
+      {{ form.name }}
+     </div>
+     <div class="form-group">
+      <label for="exampleInputEmail">Email Address</label>
+      {{ form.email }}
+     </div>
+     <div class="form-group">
+      <label for="telephone">Subject</label>
+      {{ form.subject }}
+     </div>
+    </div>
+    <div class="col-md-6 dex">
+     <div class="form-group">
+        <label for ="description"> Message</label>
+        {{ form.message }}
+     </div>
+     <div>
+      <button type="submit" value="Submit" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
+     </div>
+    </div>
+
+  </div>
+</div>
+   {% csrf_token %}
+   </form>
+{% endif %}
+
+  </body>
+</html>
+
+
+{% endblock content %}
